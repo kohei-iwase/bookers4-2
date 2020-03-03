@@ -20,14 +20,14 @@ class BooksController < ApplicationController
   	else
       @user = current_user
   		@books = Book.all
-  		render :index
+  		render :index, notice: "update error"
   	end
   end
 
   def edit
   	@book = Book.find(params[:id])
       if @book.user != current_user
-        redirect_to books_path
+        redirect_to books_path 
       end
   end
 
