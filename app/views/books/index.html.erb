@@ -33,8 +33,8 @@
 					</td>
 					<td><%= link_to book.title, book, class: "book_#{book.id}" %></td>
 					<td><%= book.body %></td>
-    				<td><%= comment.user.name %></td>
-    				<td><%= link_to "#{book.book_comments.count} コメント" %></td>
+					<td></td>
+    				<td><%= link_to "#{book.book_comments.count} コメント", book %></td>
 				</tr>
 				<% end %>
 			</tbody>
