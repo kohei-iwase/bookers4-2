@@ -38,9 +38,6 @@
     </header>
     <!--ヘッダーの記述-->
     <div class="container">
-         <% flash.each do |msg_class, msg| %>
-        <div class="alert alert-<%= msg_class %>"><%= msg %></div>
-      <% end %>
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
       <%= yield %>
     </div>
