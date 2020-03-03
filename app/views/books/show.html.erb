@@ -33,11 +33,13 @@
 	<ol>
     <% @book.book_comments.each do |book_comment| %>
         <li class="comment">
-            <a href="#" class="link-author"><%= book_comment.user.name %></a>
+            <%= link_to book_comment.user.name, user_path(@user) %>
                 <span class="comment-meta">
            		     <span class="comment-date"><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
                 </span>
-                <div class="comment-entry"><%= book_comment.comment %></div>
+                <div class="comment-entry"><%= book_comment.comment %>
+                <%= link_to "削除", book_book_comments_path(@book), method: :delete %>
+                </div>
         </li>
     <% end %>
 </ol>
