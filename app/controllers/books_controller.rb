@@ -18,8 +18,6 @@ class BooksController < ApplicationController
   	if @book.save #入力されたデータをdbに保存する。
   		redirect_to @book, notice: "successfully created book!"#保存された場合の移動先を指定。
   	else
-      @user = current_user
-  		@books = Book.all
   		render :index, notice: "update error"
   	end
   end
