@@ -1,7 +1,9 @@
 <% @user ||= current_user %>
 <div class="row">
-	<strong>
+	<span class="col-xs-6">
 		<%= link_to "#{@user.following.count} following", following_user_path(@user) %>
+	</span>
+	<span class="col-xs-6">
 		<%= link_to "#{@user.followers.count} followers", followers_user_path(@user) %>
-	</strong>
+	</span>
 </div>

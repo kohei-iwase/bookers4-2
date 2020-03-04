@@ -30,12 +30,16 @@ class UsersController < ApplicationController
   end
 
   def following
+    @title = "Following"
+    @book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
     @user   = User.find(params[:id])
     @users  = @user.following#.paginate(page: params[:page])
     render "show_follow"
   end
 
   def followers
+    @title = "Followers"
+    @book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
     @user   = User.find(params[:id])
     @users  = @user.followers#.paginate(page: params[:page])
     render "show_follow"
