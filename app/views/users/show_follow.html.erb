@@ -1,19 +1,24 @@
+<div class="container">
 <div class="row">
-<aside class="col-md-4"> <section class="user_info"> <%= <%= link_to attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg", user %> @user %>
-<h1><%= @user.name %></h1>
-<span><%= link_to user_path, @user %></span> <span><b>Microposts:</b> <%= @user.books.count %></span>
-    </section>
+<div class="col-xs-3">
+<h2>User info</h2>
+<%= render 'users/profile', user: @user %>
+<!--同コントローラーのviewで表示ならusersは省略可 -->
+
+<div class="col-xs-9">
+	<h1><%= @user.name %></h1>
+	<span><%= link_to user_path, @user %></span>
+	<span><b>Microposts:</b> <%= @user.books.count %></span>
     <section class="stats">
-<%= render 'shared/stats' %> <% if @users.any? %>
-<div class="user_avatars">
-<% @users.each do |user| %>
-<%= link_to attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg", user %> <% end %>
-</div> <% end %>
-</section>
-</aside>
+		<%= render 'layouts/status' %>
+		<% if @users.any? %> 
+		<div class="user_avatars">
+		<% @users.each do |user| %>
+		<%= link_to attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg"), user %> 
+		<% end %>
+		</div>
+		<% end %>
+	</section>
 <div class="col-md-8">
 <h3><%= @title %></h3> <% if @users.any? %>
-<ul class="users follow"> <%= render @users %>
-</ul>
-<%= will_paginate %> <% end %>
-  </div>
+<% end %>
