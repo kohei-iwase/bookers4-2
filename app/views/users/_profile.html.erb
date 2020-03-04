@@ -9,7 +9,9 @@
 					<span class="col-xs-7">
 					<h4><%= user.name %></h4>
 					<br>
+					<% if @user != current_user %>
 					<%= render 'users/follow_form', user: @user %>
+					<% end %>
 					</span>
 				</div>
 				<div class="col-xs-12">

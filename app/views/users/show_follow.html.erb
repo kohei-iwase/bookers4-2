@@ -26,7 +26,10 @@
 			<td><%= link_to user.name, user %></td>
 			<td><%= render 'layouts/status' %></td>
 			<td><b>books:</b> <%= @user.books.count %></td>
-			<td><%= render 'users/follow_form' %></td>
+			<td><% if user != current_user %>
+				<%= render 'users/follow_form' %>
+				<% end %>
+				</td>
 			<td><%= link_to "Show", user, class: "btn btn-warning" %></td>
 		</tr>
 	<% end %>
