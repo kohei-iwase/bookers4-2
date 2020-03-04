@@ -1,17 +1,33 @@
+<div class="row">
 <table class="table">
-		<tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
-
 		<tr>
-			<th>name</th>
-			<th><%= user.name %></th>
+			<th>
+				<div class="row">
+					<span class="col-xs-5">
+						<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+					</span>
+					<span class="col-xs-7">
+					<h4><%= user.name %></h4>
+					<br>
+					<% if @user != current_user %>
+					<%= render 'users/follow_form', user: @user %>
+					<% end %>
+					</span>
+				</div>
+				<div class="col-xs-12">
+					<h4>
+					<%= render 'layouts/status', user: @user %>
+					</h4>
+				</div>
+
+			</th>
 		</tr>
-
 		<tr>
-			<th>introduction</th>
+			<th><strong>Introduction</strong></th>
 			<th><%= user.introduction %></th>
 		</tr>
 </table>
-
+</div>
 <div class="row">
 	<%= link_to '',edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
 </div>
