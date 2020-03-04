@@ -2,20 +2,26 @@
 <table class="table">
 		<tr>
 			<th>
-				<div class="col-xs-12">
-				<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
-				<br>
-				<%= render 'users/follow_form' %>
-				<strong>
-				<%= user.name %>
-				</strong>
-				<br>
-				<%= render 'layouts/status', user: @user %>
+				<div class="row">
+					<span class="col-xs-4">
+						<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+					</span>
+					<span class="col-xs-8">
+					<h3><%= user.name %></h3>
+					<br>
+					<%= render 'users/follow_form' %>
+					</span>
 				</div>
+				<div class="col-xs-12">
+					<h3>
+					<%= render 'layouts/status', user: @user %>
+					</h3>
+				</div>
+
 			</th>
 		</tr>
 		<tr>
-			<th>introduction</th>
+			<th><h3>introduction</h3>></th>
 			<th><%= user.introduction %></th>
 		</tr>
 </table>
