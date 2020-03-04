@@ -1,0 +1,16 @@
+<div class="container">
+<h2> User検索 </h2>
+<div class ="row">
+<%= search_form_for @q  do |f| %>
+<div class="col-xs-3">
+	<%= f.label :name_cont, 'ユーザー名' %>
+</div>
+<div class="col-xs-6">
+		<%= f.search_field :name_cont, class: 'form-control' %>
+</div>
+<div class="col-xs-3">
+		<%= f.submit '検索', class: 'btn btn-default' %>
+</div>
+</div>
+</div>
+<% end %>

@@ -14,7 +14,6 @@
     <!--ヘッダーの記述-->
     <<header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
-
         <nav class="nav navbar-nav navbar-left">
           <span>Bookers</span>
         </nav>
@@ -34,9 +33,12 @@
             <% end %>
           </ul>
         </nav>
-
+        <!--search form-->
       </div>
     </header>
+    <div class="container">
+    <%= render 'layouts/searchform'%>
+    </div>
     <!--ヘッダーの記述-->
     <div class="container">
       <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
