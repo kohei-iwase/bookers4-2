@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   	end
   end
 
+  resources :relationships, only: [:create, :destroy]
+
   root 'home#top'
   get 'home/about' => "home#about"
 end
