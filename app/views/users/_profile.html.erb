@@ -5,7 +5,9 @@
 			<th>name</th>
 			<th><%= user.name %></th>
 		</tr>
-
+		<tr>
+			<th><%= render 'layouts/stats', user: @user %></th>
+		</tr>
 		<tr>
 			<th>introduction</th>
 			<th><%= user.introduction %></th>

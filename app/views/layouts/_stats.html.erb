@@ -1,0 +1,8 @@
+<div class="row">
+	<strong>
+		<%= link_to user.following.count, following_user_path(user) %>
+		following
+		<%= link_to user.followers.count, followers_user_path(user) %>
+		followers
+	</strong>
+</div>
