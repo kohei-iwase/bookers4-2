@@ -9,4 +9,11 @@ class Book < ApplicationRecord
 	#presence trueは空欄の場合を意味する。
 	validates :title, presence: true
     validates :body, presence: true, length: {maximum:200}
+
+  private
+  #検索対象をnameだけにする
+   def self.ransackable_attributes(auth_object = nil)
+    %w(title)
+  end
+
 end
