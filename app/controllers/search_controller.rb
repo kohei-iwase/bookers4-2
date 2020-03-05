@@ -1,13 +1,15 @@
 class SearchController < ApplicationController
-	
-	def search
-	    @q = User.ransack(params[:q])
-    	@users = @q.result(distinct: true)
-    	# @b = Book.ransack(params[:b])
-    	# @books = @b.result(distinct: true)
-	end
+  
 
-	def searched
-		@resultuser = @q.result(distinct: true)#ここで検索
-	end
+  def index
+    @user = current_user
+  	@users = User.all #検索結果を表示するためにUserモデルのデータを全て変数に入れて取り出す。
+  	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
+  end
+
 end
+
+  private
+  def user_params
+  	params.require(:user).permit(:name, :introduction, :profile_image)
+  end

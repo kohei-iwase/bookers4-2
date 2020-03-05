@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   def set_search
     @search = User.ransack(params[:q]) #ransackメソッド推奨
     @search_users = @search.result
-
   end
   
     protected
@@ -26,3 +25,4 @@ class ApplicationController < ActionController::Base
       #sign_upの際にnameのデータ操作を許。追加したカラム。
     end
 end
+
