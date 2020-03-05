@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = User.ransack(params[:q]) #ransackメソッド推奨
+    @search.build_condition if @search.conditions.empty?
     @search_users = @search.result
   end
   

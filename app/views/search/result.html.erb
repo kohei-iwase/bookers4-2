@@ -10,6 +10,7 @@
 		</tr>
 	</thead>
 	<tbody>
+	<% if @search_users.any? %>
 	<% @search_users.each do |user| %>
 		<tr>
 			<td><%= link_to attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg"), user %></td>
@@ -34,12 +35,16 @@
 			<%= f.submit "フォローする", class: "btn btn-primary" %>
 		<% end %>
 		<% end %>
-	<% end %></td>
+	<% end %>
+	</td>
 			<td><%= link_to "Show", user, class: "btn btn-warning" %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+		<% else %>
+<h1>キーワードを含むユーザーを検索できませんでした</h1>
+<% end %>
 </div>
 </div>
 <!--users一覧 -->
