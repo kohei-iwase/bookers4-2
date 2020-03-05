@@ -24,7 +24,7 @@
 		<%= link_to "#{user.followers.count} followers", followers_user_path(user) %>
 	</span>
 </div></td>
-			<td><b>books:</b> <%= user.books.count %></td>
+			<td><%= link_to "books:#{user.books.count} ", user%></td>
 			<td><% if user != current_user %>
 				<% if current_user.following?(user) %>
 		<%= form_for(current_user.active_relationships.find_by(followed_id: user.id), html: { method: :delete }, remote: true) do |f| %>

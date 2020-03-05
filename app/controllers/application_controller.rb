@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     @search = User.joins(:books).ransack(params[:q])
     #コンディションがないと検索フィールドが消えるので、予め空のフィールドを作る
     @search.build_condition if @search.conditions.empty?
-    @search_users = @search.result
+    @search_users = @search.result(distinct: true)
   end
 
     protected
