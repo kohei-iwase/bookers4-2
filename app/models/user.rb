@@ -38,5 +38,11 @@ class User < ApplicationRecord
   def following?(other_user)
   	following.include?(other_user)
   end
+  
+  private
+  #検索対象をnameだけにする
+    def self.ransackable_attributes(auth_object = nil)
+     %w(name)
+    end
 
 end
