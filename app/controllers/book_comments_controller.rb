@@ -18,6 +18,6 @@ class BookCommentsController < ApplicationController
 	private
 
 	def book_comment_params
-		params.require(:book_comment).permit(:comment)
+		params.require(:book_comment).permit(:comment, :item_id, :user_id)
 	end
 end

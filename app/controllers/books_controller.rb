@@ -1,9 +1,10 @@
 class BooksController < ApplicationController
 before_action :authenticate_user!, :except=>[:about, :top]
   def show
-    @book_comment = BookComment.new
     @book =Book.new
   	@book = Book.find(params[:id])
+    @book_comment = BookComment.new
+    @book_comments = @book.comments.order(created_at: :desc)
     @user = current_user
   end
 
@@ -49,7 +50,7 @@ before_action :authenticate_user!, :except=>[:about, :top]
   private
 
   def book_params
-  	params.require(:book).permit(:title, :body)
+  	params.require(:book).permit(:title, :body, :user_id)
   end
 
 end
