@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 
   def set_search
-    @search = User.ransack(params[:q]) #ransackメソッド推奨
+    @search = User.ransack(params[:q]) 
     @search.build_condition if @search.conditions.empty?
     @search_users = @search.result
   end
-  
+
     protected
     def after_sign_in_path_for(resource)
       user_path(resource)
