@@ -8,15 +8,16 @@
 <!--   # attributes(属性、ここではUserとか) -->
   <%= c.attribute_fields do |a| %>
     <!-- User内のnameとBook内のtitleを設定 -->
-    <%#= a.attribute_select associations: [:name,:book] %>
-    <%= a.attribute_select  %>
+    <%= a.attribute_select associations: [:books] %>
+    <%#= a.attribute_select  %>
     <%#= a.hidden_field :name, value: :name %>
     <%#= a.hidden_field :name, value: :title %>
   <% end %>
 
   <!-- # predicate(述語、ここでは部分一致などの検索方法) -->
-  <%= c.predicate_select compounds: false %>
-  <%#= c.predicate_select compounds: false, only: [:eq, :cont, :start, :end] %>
+  <%#= c.predicate_select compounds: false %>
+  <%= c.predicate_select compounds: false, only: [:eq, :cont, :start, :end, :部分一致,
+    :前方一致,:完全一致,:後方一致] %>
   <%#= c.hidden_field :p, value: "eq" %>
   <!-- # values(値、入力するところ) -->
   <%= c.value_fields do |v| %>

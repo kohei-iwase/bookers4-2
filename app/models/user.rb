@@ -41,8 +41,8 @@ class User < ApplicationRecord
   
   private
   #検索対象をnameだけにする
-   def self.ransackable_attributes(auth_object = nil)
-    %w(name)
-   end
+    def self.ransackable_attributes(auth_object = nil)
+     %w(name)
+    end
 
 end
