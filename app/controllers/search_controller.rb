@@ -8,6 +8,6 @@ class SearchController < ApplicationController
 	end
 
 	def searched
-		@result = @q.result(distinct: true)#ここで検索
+		@resultuser = @q.result(distinct: true)#ここで検索
 	end
 end

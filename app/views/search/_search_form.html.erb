@@ -1,6 +1,7 @@
 <div class="container">
 	<div class ="row">
-		<%= search_form_for @q do |f| %>
+		<%= search_form_for @search,enforce_utf8: false, url:search_result_path do |f| %>
+		<!-- false時にurlにutfを表示させない -->
 			<div class="col-xs-3">
 			</div>
 			<div class="col-xs-6">
@@ -18,10 +19,7 @@
 				<%= f.search_field :name_cont, class: 'form-control' %>
 				<% end %>
 				<% end %>
-			</div>
-			<div class="col-xs-3">
 				<%= f.submit '検索', class: 'btn btn-default' %>
-			</div>
 		<% end %>
 	</div>
 </div>
