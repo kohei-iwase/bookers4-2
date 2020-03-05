@@ -7,17 +7,23 @@
 
 <!--   # attributes(属性、ここではUserとか) -->
   <%= c.attribute_fields do |a| %>
-    <%= a.attribute_select %>
+    <%#= a.attribute_select %>
+    <!-- User内のnameとBook内のtitleを設定 -->
+    <%= a.attribute_select associations: [:name,:book] %>
+    <%#= a.hidden_field :name, value: :name %>
+    <%#= a.hidden_field :name, value: :title %>
   <% end %>
 
   <!-- # predicate(述語、ここでは部分一致などの検索方法) -->
-  <%= c.predicate_select only: [:eq, :cont, :start, :end] %>
-
+  <%= c.predicate_select compounds: false, only: [:eq, :cont, :start, :end] %>
+  <%#= c.hidden_field :p, value: "eq" %>
   <!-- # values(値、入力するところ) -->
   <%= c.value_fields do |v| %>
     <%= v.search_field :value %>
   <% end %>
 
+<!-- and検索とかするとき -->
+<%#= c.combinator_select %>
 <% end %>
 <%= f.submit "検索",class: 'btn btn-default ' %>
 <% end %>

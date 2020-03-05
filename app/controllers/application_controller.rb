@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
 	#デバイス機能実行前にconfigure_permitted_parametersの実行をする。
 	protect_from_forgery with: :exception
 
-  def set_search
+  def set_search #すべてのページで検索ができるよう、データを読み込んでおく
     @search = User.ransack(params[:q]) 
+    #コンディションがないと検索フィールドが消えるので、予め空のフィールドを作る
     @search.build_condition if @search.conditions.empty?
     @search_users = @search.result
   end
