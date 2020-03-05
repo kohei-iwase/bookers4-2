@@ -6,16 +6,8 @@ Ransack.configure do |config|
                        arel_predicate: 'eq',
                        # 入力値の整形
                        # デフォルトは何もしないよ。
-                       formatter: proc { |v| "#{v}-diddly" },
-                       # 入力値のバリデーション。戻り値がfalseの場合はこの条件は無視される。
-                       # デフォルトはpresent?でバリデートするよ。
-                       validator: proc { |v| v.present? },
-                       # 述語allと述語anyを使えるようにする。
-                       # デフォルトはtrue
-                       compounds: true,
-                       # 入力値の型変換
-                       # デフォルトはDBのカラムの型を利用する。
-                       type: :string
+                       compounds: false
+
   config.add_predicate '前方一致', # 述語名
                        # Arelの述語(eqとか)
                        # Arelについては 第9章 RansackのためのArel入門 を参照してね。
@@ -53,17 +45,8 @@ Ransack.configure do |config|
   config.add_predicate '部分一致', # 述語名
                        # Arelの述語(eqとか)
                        # Arelについては 第9章 RansackのためのArel入門 を参照してね。
-                       arel_predicate: 'cont',
+                       arel_predicate: 'matches',
                        # 入力値の整形
                        # デフォルトは何もしないよ。
-                       formatter: proc { |v| "#{v}-diddly" },
-                       # 入力値のバリデーション。戻り値がfalseの場合はこの条件は無視される。
-                       # デフォルトはpresent?でバリデートするよ。
-                       validator: proc { |v| v.present? },
-                       # 述語allと述語anyを使えるようにする。
-                       # デフォルトはtrue
-                       compounds: true,
-                       # 入力値の型変換
-                       # デフォルトはDBのカラムの型を利用する。
-                       type: :string
+                       compounds: false
 end

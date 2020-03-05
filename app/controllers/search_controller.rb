@@ -3,10 +3,10 @@ class SearchController < ApplicationController
 
   def index
     @user = current_user
-#  	@users = User.all #検索結果を表示するためにUserモデルのデータを全て変数に入れて取り出す。
-  	@users = User.joins(:books).all
+  	@users = User.all #検索結果を表示するためにUserモデルのデータを全て変数に入れて取り出す。
+#  	@users = User.joins(:books).all
   	@books = Book.all #検索結果を表示するためにUserモデルのデータを全て変数に入れて取り出す。
-  	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
+  	@book = use.book #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
   end
 
 
