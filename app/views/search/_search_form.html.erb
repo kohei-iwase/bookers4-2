@@ -7,7 +7,6 @@
 
 <!--   # attributes(属性、ここではUserとか) -->
   <%= c.attribute_fields do |a| %>
-    <%#= a.attribute_select %>
     <!-- User内のnameとBook内のtitleを設定 -->
     <%= a.attribute_select associations: [:name,:book] %>
     <%#= a.hidden_field :name, value: :name %>
