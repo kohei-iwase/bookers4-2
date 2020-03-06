@@ -34,7 +34,22 @@
 			</tr>
 		</table>
 	<!--コメント部分-->
-		<%= render 'books/comment', book: @book %>
+<ol>
+    <% @book.book_comments.each do |book_comment| %>
+        <li class="comment">
+            <%= link_to book_comment.user.name, user_path(book_comment.user_id) %>
+                <span class="comment-meta">
+           		     <span class="comment-date"><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
+                </span>
+                <div class="comment-entry"><%= book_comment.comment %>
+               	<% if book_comment.user == current_user %>
+                <%= link_to "削除", book_book_comments_path(@book), method: :delete %>
+                </div>
+                <% end %>
+        </li>
+    <% end %>
+</ol>
+
 	<!--コメントフォーム-->
      <div class="col-xs-12">
         <%= form_for [@book, @book_comment] do |f| %>

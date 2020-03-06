@@ -4,7 +4,7 @@ before_action :authenticate_user!, :except=>[:about, :top]
     @book =Book.new
   	@book = Book.find(params[:id])
     @book_comment = BookComment.new
-    @book_comments = @book.comments.order(created_at: :desc)
+    # @book_comments = @book_comments.order(created_at: :desc)
     @user = current_user
   end
 
