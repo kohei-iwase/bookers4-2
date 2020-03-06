@@ -35,8 +35,7 @@
 			</tr>
 		</table>
 	<!--コメント部分-->
-      <%= render 'comment', book: @book,book_comment: @book_comment %>
-	<!--コメントフォーム-->
+	  <%= render @book_comments %>
 	  <%= render 'comment_form', book: @book,book_comment: @book_comment %>
 	</div>
 </div>

@@ -7,6 +7,8 @@ class BookCommentsController < ApplicationController
 		respond_to do |format|
 			format.html	{redirect_back(fallback_location: book)}
 			format.js
+		end
+	end
 #		redirect_back(fallback_location: book_path(book))
 
 	end
