@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 before_action :authenticate_user!, :except=>[:about, :top]
   def show
-    @book =Book.new
+
   	@book = Book.find(params[:id])
     @book_comment = BookComment.new
     # @book_comments = @book_comments.order(created_at: :desc)
