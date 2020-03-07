@@ -10,13 +10,13 @@
 					<h4><%= user.name %></h4>
 					<br>
 					<% if @user != current_user %>
-					<%= render 'users/follow_form', user: @user %>
+					<%= render 'users/follow_form', user: user %>
 					<% end %>
 					</span>
 				</div>
 				<div class="col-xs-12">
 					<h4>
-					<%= render 'layouts/status', user: @user %>
+					<%= render 'layouts/status', user: user %>
 					</h4>
 				</div>
 

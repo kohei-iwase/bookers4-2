@@ -11,14 +11,8 @@ class BookCommentsController < ApplicationController
       	@book_comments = BookComment.where(book_id: @book.id)
       	render '/books/show'
 
-# 		if comment.save
-# 		respond_to do |format|
-# 			format.html	{redirect_back(fallback_location: book)}
-# 			format.json
-# #			# format.js
 		end
 	end
-#		redirect_back(fallback_location: book_path(book))
 
 	end
 
