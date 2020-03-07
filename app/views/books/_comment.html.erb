@@ -1,7 +1,7 @@
 <ol>
-<tr id="book_comment-<%= book_comment.id %>">
     <% book.book_comments.each do |book_comment| %>
             <li >
+                <div id="comment-style">
             <%= link_to book_comment.user.name, user_path(book_comment.user_id) %>
                 <span class="comment-meta">
                      <span class="comment-date"><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
@@ -10,8 +10,7 @@
                 <%= link_to "削除", book_book_comments_path(book), method: :delete,remote: true, class: "btn btn-danger delete" %>
                 <% end %>
                 </span>
-                </div>
+            </div>
             </li>
     <% end %>
-</tr>
 </ol>
