@@ -1,16 +1,17 @@
-<ol>
-    <% book.book_comments.each do |book_comment| %>
-            <li >
-                <div id="comment-style">
-            <%= link_to book_comment.user.name, user_path(book_comment.user_id) %>
-                <span class="comment-meta">
-                     <span class="comment-date"><%= book_comment.created_at.strftime('%Y/%m/%d') %></span>
-                <div class="comment-entry"><%= book_comment.comment %>
-                <% if book_comment.user == current_user %>
-                <%= link_to "削除", book_book_comments_path(book), method: :delete,remote: true, class: "btn btn-danger delete" %>
-                <% end %>
-                </span>
-            </div>
-            </li>
+    <% book_comments.each do |book_comment| %>
+        <tr>
+            <td>
+            <%= link_to user_path(book_comment.user), class: "user_#{book_comment.user.id}" do %>
+                <%= attachment_image_tag(book_comment.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
+                <%= book_comment.user.name %>
+            <% end %>
+            </td>
+            <td><%= book_comment.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= book_comment.comment %></td>
+            <% if book_comment.user == current_user %>
+            <td><%= link_to "削除", book_book_comments_path(book_comment), method: :delete,remote: true, class: "btn btn-danger delete" %>
+            </td>
+            <% end %>
+        </tr>
     <% end %>
-</ol>
+
