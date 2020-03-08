@@ -16,13 +16,37 @@
   </div>
 
   <div class="field">
+  <%= f.label :postcode %><br />
+  <%= f.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_name %><br />
+    <%= f.collection_select :prefecture_name,  JpPrefecture::Prefecture.all, :name,:name, include_blank: '都道府県' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :addres_city %><br />
+    <%= f.text_field :address_city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :addres_street %><br />
+    <%= f.text_field :address_street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :addres_building %><br />
+    <%= f.text_field :address_building %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "password" %>
   </div>
-
 <!--パスワード確認入力フォーム-->
   <div class="field">
     <%= f.label :password_confirmation %><br />
