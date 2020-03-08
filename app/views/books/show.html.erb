@@ -14,7 +14,7 @@
         <%= render 'detail', book: @book %>
       </tr>
     </table>
-    <table class="show-tb comment_<%= @book.id %>">
+    <table class="comment_<%= @book.id %>">
       <%= render 'comment', book_comments: @book.book_comments %>
     </table>
 	<div class="comments_form">

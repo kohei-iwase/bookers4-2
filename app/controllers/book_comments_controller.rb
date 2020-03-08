@@ -10,13 +10,15 @@ class BookCommentsController < ApplicationController
 	      @book_comments = BookComment.where(id: @book)
 	    end
 	end
-	
+
 	def destroy
 	    @book_comment = BookComment.find(params[:book_id])
 	    @book = @book_comment.book
-    	@book_comment.destroy
-   # 	redirect_to redirect_back(fallback_location: book)
-    end
+	    if @book_comment.user != current_user
+	      redirect_to request.referer
+	    end
+	    @book_comment.destroy
+	end
 
 	private
 
