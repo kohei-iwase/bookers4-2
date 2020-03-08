@@ -1,0 +1,16 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+			<th colspan="4"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr id="user_<%= user.id %>">
+				<%= render 'users/user', user:user %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

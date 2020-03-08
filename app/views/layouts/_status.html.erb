@@ -4,6 +4,8 @@
 		<%= link_to "#{@user.following.count} following", following_user_path(@user) %>
 	</span>
 	<span class="col-xs-6">
+		<span id="followers">
 		<%= link_to "#{@user.followers.count} followers", followers_user_path(@user) %>
+		</span>
 	</span>
 </div>

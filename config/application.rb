@@ -10,6 +10,7 @@ module Bookers2Debug
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.web_console.whitelisted_ips = '10.0.2.2'
     #認証トークンを埋め込む
 	config.action_view.embed_authenticity_token_in_remote_forms = true
     # Settings in config/environments/* take precedence over those specified here.

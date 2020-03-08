@@ -1,0 +1,27 @@
+<td>
+	<%= link_to(user) do %>
+		<%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
+</td>
+<td>
+		<%= user.name %>
+	<% end %>
+</td>
+<td>
+	<div class="row">
+		<span class="col-xs-6">
+			<%= link_to "#{user.following.count} following", following_user_path(user) %>
+		</span>
+		<span class="col-xs-6">
+			<%= link_to "#{user.followers.count} followers", followers_user_path(user) %>
+		</span>
+	</div>
+</td>
+<td>
+	<b>books:</b> <%= user.books.count %>
+</td>
+<td>
+	<% if user != current_user %>
+		<!-- <%= render 'follow_form', user: @user %> -->
+	<% end %>
+</td>
+<td><%= link_to "Show", user, class: "btn btn-warning" %></td>
