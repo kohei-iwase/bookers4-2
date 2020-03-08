@@ -1,25 +1,9 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<h2>User info</h2>
-			<%= render 'users/profile', user: @user %>
-			<h2>New book</h2>
-			<%= render 'books/newform', book: @book %>
-		</div>
-		<div class="col-xs-9">
-		<h2>Books</h2>
-		<!--books一覧 -->
-		<%= render 'books/index', books: @books %>
-		<!--books一覧 -->
-		</div>
-	</div>
-</div>
-<div class="container">
-	<h2>Your Map</h2>
+<h2>gmap</h2>
+
 <input id="address" type="textbox" value="GeekSalon">
 <input type="button" value="Encode" onclick="codeAddress()">
 <!-- 下の1行を追加 -->
-<div id="display"></div>
+<div id="display">何かが表示される、、、、！</div>
 
 <div id='map'></div>
 
@@ -69,4 +53,3 @@ function codeAddress(){
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Uo-0D2PoQaAECrt9UXceHO7S1gveNd0&callback=initMap" async defer></script>
-</div>
