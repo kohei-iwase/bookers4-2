@@ -1,55 +1,38 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <!--name表示の追加-->
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: "name" %>
+    <%= f.input :name, autofocus: true, class: "name" %>
   </div>
   <!--name表示の追加-->
-
+<br>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: "email" %>
+    <%= f.input :email, autofocus: true, class: "email" %>
   </div>
 
-  <div class="field">
-  <%= f.label :postcode %><br />
-  <%= f.text_field :postcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :prefecture_name %><br />
-    <%= f.collection_select :prefecture_name,  JpPrefecture::Prefecture.all, :name,:name, include_blank: '都道府県' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :addres_city %><br />
-    <%= f.text_field :address_city %>
-  </div>
-
-  <div class="field">
-    <%= f.label :addres_street %><br />
-    <%= f.text_field :address_street %>
-  </div>
-
-  <div class="field">
-    <%= f.label :addres_building %><br />
-    <%= f.text_field :address_building %>
-  </div>
-
+<br>
+  <%= f.input :postcode %>
+<br>
+  <%= f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %>
+<br>
+  <%= f.input :address_city %>
+<br>
+  <%= f.input :address_street %>
+<br>
+  <%= f.input :address_building %>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password", class: "password" %>
   </div>
 <!--パスワード確認入力フォーム-->
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "password_confirm" %>
   </div>
 
