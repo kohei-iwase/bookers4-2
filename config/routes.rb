@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :maps, only: [:index]
   devise_for :users
   resources :books do
     resource	:book_comments, only: [:create, :destroy]

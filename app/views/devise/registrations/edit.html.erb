@@ -11,6 +11,17 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
+  
+<br>
+  <%= f.input :postcode %>
+<br>
+  <%= f.input :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %>
+<br>
+  <%= f.input :address_city %>
+<br>
+  <%= f.input :address_street %>
+<br>
+  <%= f.input :address_building %>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
