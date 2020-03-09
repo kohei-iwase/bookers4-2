@@ -1,16 +1,24 @@
-<h2>gmap</h2>
+<h2>YourMAP</h2>
 
-<input id="address" type="textbox" value="GeekSalon">
+<br>
+  <%= user.postcode %>
+<br>
+  <%= user.address_city %>
+<br>
+  <%= user.address_street %>
+<br>
+  <%= user.address_building %>
+
+<input id="address" type="textbox" value="<%= user.address_city %>">
 <input type="button" value="Encode" onclick="codeAddress()">
 <!-- 下の1行を追加 -->
-<div id="display">何かが表示される、、、、！</div>
+<div id="display"></div>
 
 <div id='map'></div>
 
 <style>
 #map {
-  height: 600px;
-  width: 600px;
+  height: 400px;
 }
 </style>
 
@@ -52,4 +60,4 @@ function codeAddress(){
   });   
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Uo-0D2PoQaAECrt9UXceHO7S1gveNd0&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>&callback=initMap" async defer></script>
