@@ -1,9 +1,5 @@
-<h2>YourMAP</h2>
-<%= user.name %>
+<h2><%= user.name %>'s MAP</h2>
 
-<input id="address" type="textbox" value="<%= user.address_city %>">
-<input type="button" value="Encode" onclick="codeAddress()">
-<!-- 下の1行を追加 -->
 <div id="display"></div>
 
   <div id='map' class="<%= @user.address_city + @user.address_street %>"></div>
