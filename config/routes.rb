@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :maps, only: [:index]
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :books do
     resource	:book_comments, only: [:create, :destroy]
     resource	:favorites, 	only: [:create, :destroy]

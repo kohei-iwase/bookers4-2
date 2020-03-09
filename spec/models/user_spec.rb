@@ -20,7 +20,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         is_expected.to eq false;
       end
       it '20文字以下であること' do
-        test_user.name = Faker::Lorem.characters(number:21)
+        test_user.name = Faker::Lorem.characters(number:51)
         is_expected.to eq false;
       end
     end
