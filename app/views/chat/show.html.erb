@@ -1,0 +1,11 @@
+<h2>Chat room</h2>
+
+<div id="chats">
+	<% @chats.each do |chat| %>
+			<span class="chat_<%= chat.id %>">
+			<div class="chat">
+				<p><%= chat.content %></p>
+			</div>
+			</span>
+		<% end %>
+</div>

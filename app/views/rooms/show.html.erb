@@ -1,0 +1,14 @@
+<h2>Chat room</h2>
+
+<div id="chats">
+	<% @chats.each do |chat| %>
+			<span class="chat_<%= chat.id %>">
+				<%= render 'chat/chat', chat:chat %>
+			</span>
+		<% end %>
+</div>
+
+<form>
+  <label>Say something:</label><br>
+  <input type="text" data-behavior="room_speaker">
+</form>
