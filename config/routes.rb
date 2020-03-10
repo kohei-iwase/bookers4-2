@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'rooms/show'
+  get 'chat/show'
+  get 'chat/show' => "chat#show"
   resources :maps, only: [:index]
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -19,6 +22,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get 'home/about' => "home#about"
-
   get 'search/result' => "search#result"
+
 end
